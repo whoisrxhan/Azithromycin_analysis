@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drug Analysis - Azithromycin</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <header class="header">
+                <h1>Drug Analysis</h1>
+                <h2 class="subtitle">Azithromycin Stereochemistry</h2>
+                <div class="molecule-image-container">
+                    <img src="{{ url_for('static', filename='molecule.png') }}" alt="Azithromycin Structure" class="molecule-image" />
+                </div>
+            </header>
+
+            <div id="loading" class="loading">
+                <div class="spinner"></div>
+                Analyzing compound...
+            </div>
+
+            <div id="error-message" class="error-message hidden">
+            </div>
+
+            <div id="results" class="results fade-in hidden">
+                <div class="summary">
+                    <div class="stat-box">
+                        <span class="stat-label">Molecule</span>
+                        <span class="stat-value" id="molecule-name"></span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-label">Total Chiral Centers</span>
+                        <span class="stat-value highlight" id="total-count"></span>
+                    </div>
+                </div>
+
+                <div class="table-container fade-in">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Atom Index</th>
+                                <th>Element</th>
+                                <th>Configuration (R/S)</th>
+                            </tr>
+                        </thead>
+                        <tbody id="table-body">
+                            <!-- Rows injected by JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
